@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">roommates</string>
+    <string name="action_settings">Settings</string>
+    <string name="login_username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login_signup_text">Don\'t have an account?</string>
+    <string name="login_signup_button">Sign Up</string>
+    <string name="login_signin_button">Sign In</string>
+    <string name="signup_retype_password">Retype Password</string>
+    <string name="signup_email">E-mail</string>
+    <string name="signup_gender">Gender</string>
+    <string name="signup_male">Male</string>
+    <string name="signup_female">Female</string>
+    <string name="signup_signin_text">Already have an account?</string>
+    <string name="describe_join_button">Join</string>
+    <string name="describe_instructions">Use the first word that comes into your mind.</string>
+
+</resources>
