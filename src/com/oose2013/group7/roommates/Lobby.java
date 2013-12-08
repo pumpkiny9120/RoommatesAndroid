@@ -1,5 +1,6 @@
 package com.oose2013.group7.roommates;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,7 +12,7 @@ import android.widget.ImageView;
 
 public class Lobby extends Activity implements OnClickListener{
 	private ImageView gamingRoomButton;
-    private DescribeModel model;
+	private ImageView datingRoomButton;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +21,22 @@ public class Lobby extends Activity implements OnClickListener{
         setContentView(R.layout.activity_lobby);
  
         gamingRoomButton = (ImageView) findViewById(R.id.gamingroom_text); 
-		
         gamingRoomButton.setOnClickListener(this);
+        datingRoomButton = (ImageView) findViewById(R.id.datingroom_text); 
+        datingRoomButton.setOnClickListener(this);
     }
     
     @Override
 	public void onClick(View v) {
-    	Log.i("Describe", "joining game");
-    	Intent i = new Intent(Lobby.this, DescribeLoading.class);
-    	i.putExtra("model", model);
-        startActivity(i);
-//      // close this activity
-//      finish();
+    	if (v.equals(gamingRoomButton)) {
+    		Log.i("Describe", "joining game");
+        	Intent i = new Intent(Lobby.this, DescribeLoading.class);
+            startActivity(i);
+    	}
+    	else if (v.equals(datingRoomButton)) {
+    		Log.i("FindMe", "joining game");
+        	Intent i = new Intent(Lobby.this, FindMeMain.class);
+            startActivity(i);
+    	}
     }
 }

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Roommates</string>
@@ -16,5 +15,6 @@
     <string name="signup_signin_text">Already have an account?</string>
     <string name="describe_join_button">Join</string>
     <string name="describe_instructions">Use the first word that comes into your mind.</string>
+    <string name="maps_api_key">AIzaSyDItAl4R4jtcJsw67EGWJ_sx1mOORdFGPA</string>
 
 </resources>

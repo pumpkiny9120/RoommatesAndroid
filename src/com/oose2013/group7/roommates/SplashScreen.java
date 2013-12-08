@@ -15,6 +15,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 
 public class SplashScreen extends Activity{
@@ -43,8 +44,14 @@ public class SplashScreen extends Activity{
             }
         }, SPLASH_TIME_OUT);
 
-        NetworkServices ser = new NetworkServices();
-        ser.isInternetOn(this);
+        if (!NetworkServices.isInternetOn(this)) {
+        	Toast toast = Toast.makeText(this, "Network not available.", Toast.LENGTH_SHORT);
+        	toast.show();
+        }
+        else {
+        	Toast toast = Toast.makeText(this, "Connected to Internet.", Toast.LENGTH_SHORT);
+        	toast.show();
+        }
     }
 
 }

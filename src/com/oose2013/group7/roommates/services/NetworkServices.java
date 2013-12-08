@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,13 +17,13 @@ public class NetworkServices extends Activity {
 		
 	}
 	
-    public boolean isInternetOn(Context context) {
+    public static boolean isInternetOn(Context context) {
         Log.d(APP_TAG, ACT_TAG + "Checking internet connectivity...");
-        ConnectivityManager connec = null;
-        connec =  (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if ( connec != null){
+        ConnectivityManager con = null;
+        con =  (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if ( con != null){
             Log.d(APP_TAG, ACT_TAG + "Internet available.");
-            NetworkInfo result = connec.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+            NetworkInfo result = con.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
             if (result != null && result.isConnectedOrConnecting());
             return true;
         }
