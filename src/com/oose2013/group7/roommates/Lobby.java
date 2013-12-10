@@ -1,6 +1,8 @@
 package com.oose2013.group7.roommates;
 
 
+import com.oose2013.group7.roommates.games.findme.FindMeMain;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

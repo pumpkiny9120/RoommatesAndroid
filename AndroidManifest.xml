@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
     
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -39,7 +39,7 @@
     <activity android:name="Lobby"></activity>
 	<activity android:name="DescribeLoading"></activity>
 	<activity android:name="DescribeMain"></activity>
-	<activity android:name="com.oose2013.group7.roommates.FindMeMain"></activity>
+	<activity android:name="com.oose2013.group7.roommates.games.findme.FindMeMain"></activity>
 	
 	<meta-data
     android:name="com.google.android.gms.version"
