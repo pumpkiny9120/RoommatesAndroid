@@ -14,8 +14,8 @@ import java.net.Socket;
 public class webService{
 	
 	private String serverMessage;
-    public static final String SERVERIP = "127.0.0.1"; //your computer IP address
-    public static final int SERVERPORT = 4440;
+    public static final String SERVERIP = "205.215.251.17"; //your computer IP address
+    public static final int SERVERPORT = 4444;
     private OnMessageReceived mMessageListener = null;
     private boolean mRun = false;
  

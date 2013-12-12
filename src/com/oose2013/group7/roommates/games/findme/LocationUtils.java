@@ -35,5 +35,7 @@ public final class LocationUtils {
      */
     public final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 
-
+    public enum Direction {
+    	LEFT, RIGHT, UP, DOWN;
+    }
 }
