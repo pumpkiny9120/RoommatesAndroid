@@ -5,6 +5,14 @@
  */
 package com.oose2013.group7.roommates;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -33,7 +41,7 @@ public class Login extends Activity {
 		setContentView(R.layout.activity_login);
 		
 		new connectTask().execute("");
-		
+
 		getWindow().setSoftInputMode(
 			      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
@@ -65,7 +73,7 @@ public class Login extends Activity {
     private void onSigninButtonClicked() {
     	Log.i("Signin", username.getText().toString());
     	Log.i("Signin", password.getText().toString());
-    	mTcpClient.sendMessage(username.getText().toString());
+    	//mTcpClient.sendMessage(username.getText().toString());
     	
     	Intent i = new Intent(Login.this, Lobby.class);
         startActivity(i);
@@ -77,15 +85,28 @@ public class Login extends Activity {
 	public class connectTask extends AsyncTask<String,String, webService> {
 		@Override
 		protected webService doInBackground(String... message) {
-			mTcpClient = new webService(new webService.OnMessageReceived() {
-				@Override
-				//here the messageReceived method is implemented
-				public void messageReceived(String message) {
-					//this method calls the onProgressUpdate
-					publishProgress(message);
-					}
-				});
-			mTcpClient.run();
+//			mTcpClient = new webService(new webService.OnMessageReceived() {
+//				@Override
+//				//here the messageReceived method is implemented
+//				public void messageReceived(String message) {
+//					//this method calls the onProgressUpdate
+//					publishProgress(message);
+//					}
+//				});
+//			mTcpClient.run();
+
+	        Socket clientSocket = null;
+	        try {
+				clientSocket = new Socket(InetAddress.getByName("205.215.251.11"), 3333);
+				clientSocket.close();
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 			return null;
 		}
 		

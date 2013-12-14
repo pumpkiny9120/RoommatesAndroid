@@ -211,17 +211,27 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f02001f;
         public static final int ic_plusone_standard_off_client=0x7f020020;
         public static final int ic_plusone_tall_off_client=0x7f020021;
-        public static final int layout_cornered_bg=0x7f020022;
-        public static final int layout_round_bg=0x7f020023;
-        public static final int logo=0x7f020024;
-        public static final int profile=0x7f020025;
-        public static final int profile_text=0x7f020026;
-        public static final int waitingroom=0x7f020027;
-        public static final int waitingroom_text=0x7f020028;
+        public static final int icon1=0x7f020022;
+        public static final int icon10=0x7f020023;
+        public static final int icon2=0x7f020024;
+        public static final int icon3=0x7f020025;
+        public static final int icon4=0x7f020026;
+        public static final int icon5=0x7f020027;
+        public static final int icon6=0x7f020028;
+        public static final int icon7=0x7f020029;
+        public static final int icon8=0x7f02002a;
+        public static final int icon9=0x7f02002b;
+        public static final int layout_cornered_bg=0x7f02002c;
+        public static final int layout_round_bg=0x7f02002d;
+        public static final int logo=0x7f02002e;
+        public static final int profile=0x7f02002f;
+        public static final int profile_text=0x7f020030;
+        public static final int waitingroom=0x7f020031;
+        public static final int waitingroom_text=0x7f020032;
     }
     public static final class id {
         public static final int TextView02=0x7f050031;
-        public static final int action_settings=0x7f050042;
+        public static final int action_settings=0x7f05004b;
         public static final int contact_connect1=0x7f050011;
         public static final int contact_connect2=0x7f050012;
         public static final int contact_connect3=0x7f050013;
@@ -253,6 +263,12 @@ containing a value of this type.
         public static final int describe_word1=0x7f050017;
         public static final int describe_word2=0x7f050016;
         public static final int describe_word3=0x7f050018;
+        public static final int friend_heart=0x7f050047;
+        public static final int friend_name=0x7f050043;
+        public static final int friend_pic=0x7f050044;
+        public static final int friend_point=0x7f050046;
+        public static final int friend_status=0x7f050045;
+        public static final int friendlist=0x7f050034;
         public static final int gamingroom_text=0x7f050029;
         public static final int hybrid=0x7f050004;
         public static final int imageView1=0x7f050026;
@@ -260,7 +276,6 @@ containing a value of this type.
         public static final int imageView3=0x7f050028;
         public static final int imageView4=0x7f050025;
         public static final int imageView7=0x7f05002a;
-        public static final int imageView8=0x7f05002b;
         public static final int login_password=0x7f05002e;
         public static final int login_password_input=0x7f050033;
         public static final int login_signin_button=0x7f05002d;
@@ -271,21 +286,25 @@ containing a value of this type.
         public static final int map=0x7f050024;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
+        public static final int profile_name=0x7f050049;
+        public static final int profile_pic=0x7f050048;
+        public static final int profile_status=0x7f05004a;
+        public static final int profile_text=0x7f05002b;
         public static final int satellite=0x7f050002;
-        public static final int signup_email=0x7f05003c;
-        public static final int signup_email_input=0x7f05003d;
-        public static final int signup_female_input=0x7f050035;
-        public static final int signup_gender=0x7f05003e;
-        public static final int signup_male_input=0x7f050036;
-        public static final int signup_password=0x7f050038;
-        public static final int signup_password_input=0x7f050039;
-        public static final int signup_retype_password=0x7f05003a;
-        public static final int signup_retype_password_input=0x7f05003b;
-        public static final int signup_signin=0x7f050041;
-        public static final int signup_signin_button=0x7f050040;
-        public static final int signup_signup_button=0x7f05003f;
-        public static final int signup_username=0x7f050034;
-        public static final int signup_username_input=0x7f050037;
+        public static final int signup_email=0x7f05003d;
+        public static final int signup_email_input=0x7f05003e;
+        public static final int signup_female_input=0x7f050036;
+        public static final int signup_gender=0x7f05003f;
+        public static final int signup_male_input=0x7f050037;
+        public static final int signup_password=0x7f050039;
+        public static final int signup_password_input=0x7f05003a;
+        public static final int signup_retype_password=0x7f05003b;
+        public static final int signup_retype_password_input=0x7f05003c;
+        public static final int signup_signin=0x7f050042;
+        public static final int signup_signin_button=0x7f050041;
+        public static final int signup_signup_button=0x7f050040;
+        public static final int signup_username=0x7f050035;
+        public static final int signup_username_input=0x7f050038;
         public static final int terrain=0x7f050003;
     }
     public static final class integer {
@@ -299,8 +318,12 @@ containing a value of this type.
         public static final int activity_findme=0x7f030004;
         public static final int activity_lobby=0x7f030005;
         public static final int activity_login=0x7f030006;
-        public static final int activity_signup=0x7f030007;
-        public static final int activity_splash=0x7f030008;
+        public static final int activity_profile=0x7f030007;
+        public static final int activity_signup=0x7f030008;
+        public static final int activity_splash=0x7f030009;
+        public static final int layout_friendlist_row=0x7f03000a;
+        public static final int layout_profile_row=0x7f03000b;
+        public static final int test=0x7f03000c;
     }
     public static final class menu {
         public static final int login=0x7f0a0000;

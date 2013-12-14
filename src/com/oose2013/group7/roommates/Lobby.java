@@ -1,7 +1,9 @@
 package com.oose2013.group7.roommates;
 
 
+import com.oose2013.group7.roommates.games.describe.DescribeLoading;
 import com.oose2013.group7.roommates.games.findme.FindMeMain;
+import com.oose2013.group7.roommates.profile.Profile;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +17,7 @@ import android.widget.ImageView;
 public class Lobby extends Activity implements OnClickListener{
 	private ImageView gamingRoomButton;
 	private ImageView datingRoomButton;
+	private ImageView profileButton;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +29,25 @@ public class Lobby extends Activity implements OnClickListener{
         gamingRoomButton.setOnClickListener(this);
         datingRoomButton = (ImageView) findViewById(R.id.datingroom_text); 
         datingRoomButton.setOnClickListener(this);
+        profileButton = (ImageView) findViewById(R.id.profile_text); 
+        profileButton.setOnClickListener(this);
     }
     
     @Override
 	public void onClick(View v) {
     	if (v.equals(gamingRoomButton)) {
-    		Log.i("Describe", "joining game");
+    		Log.d("Describe", "Joining game");
         	Intent i = new Intent(Lobby.this, DescribeLoading.class);
             startActivity(i);
     	}
     	else if (v.equals(datingRoomButton)) {
-    		Log.i("FindMe", "joining game");
+    		Log.d("FindMe", "Joining game");
         	Intent i = new Intent(Lobby.this, FindMeMain.class);
+            startActivity(i);
+    	}
+    	else if (v.equals(profileButton)) {
+    		Log.d("Profile", "Joining game");
+        	Intent i = new Intent(Lobby.this, Profile.class);
             startActivity(i);
     	}
     }

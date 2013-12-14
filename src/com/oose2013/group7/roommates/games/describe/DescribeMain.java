@@ -4,8 +4,10 @@
  * 
  * @author      Yanan Wang
  */
-package com.oose2013.group7.roommates;
-
+package com.oose2013.group7.roommates.games.describe;
+import com.oose2013.group7.roommates.R;
+import com.oose2013.group7.roommates.GameEvent;
+import com.oose2013.group7.roommates.GameListener;
 import com.oose2013.group7.roommates.common.interfaces.DescribeGameProxy;
 
 import android.app.Activity;
@@ -132,4 +134,5 @@ public class DescribeMain extends Activity implements GameListener, DescribeGame
 	public void modelChanged(GameEvent event) {
 		updateView();
 	}
+
 }

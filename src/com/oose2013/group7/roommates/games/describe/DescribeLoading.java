@@ -4,8 +4,9 @@
  * 
  * @author      Yanan Wang
  */
-package com.oose2013.group7.roommates;
+package com.oose2013.group7.roommates.games.describe;
 
+import com.oose2013.group7.roommates.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:paddingTop="5dp" >
+
+    <TextView
+        android:id="@+id/friend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/friend_pic"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/friend_pic"
+        android:text="Yanan Wang"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/friend_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/friend_pic"
+        android:layout_alignLeft="@+id/friend_name"
+        android:layout_marginBottom="10dp"
+        android:text="This is a status..."
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/friend_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/friend_status"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="120dp"
+        android:text="30"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ImageView
+        android:id="@+id/friend_heart"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_above="@+id/friend_status"
+        android:layout_alignLeft="@+id/friend_point"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/friend_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/common_signin_btn_icon_pressed_dark" />
+
+</RelativeLayout>

@@ -1,8 +1,10 @@
-package com.oose2013.group7.roommates;
+package com.oose2013.group7.roommates.games.describe;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.oose2013.group7.roommates.GameModel;
 
 public class DescribeModel extends GameModel implements Serializable{
 	/**
