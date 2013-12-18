@@ -13,12 +13,8 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.oose2013.group7.roommates.R;
-import com.oose2013.group7.roommates.games.findme.LocationUtils.Direction;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -42,6 +38,10 @@ public class FindMeMain extends Activity implements
 		private LocationClient mLocationClient;
 		public final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 		
+	    public enum Direction {
+	    	LEFT, RIGHT, UP, DOWN;
+	    }
+	    
 	    @Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
@@ -103,14 +103,6 @@ public class FindMeMain extends Activity implements
 		}
 
 		private void checkDestination(LatLng point) {
-			/* Left? Right? Up? Down?
-	         *                   B (dest)
-	         *                   |
-	         *                   | dist_UpDown
-	         * (guess)           |
-	         *  A----------------C (latA, longB)
-	         *      dist_LeftRight
-	         */
 			double latA = point.latitude;
 			double longA = point.longitude;
 			double latB = dest.latitude;

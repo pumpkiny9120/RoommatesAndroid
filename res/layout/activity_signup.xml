@@ -26,15 +26,6 @@
         android:layout_marginTop="50dp"
         android:text="@string/login_username" />
 
-    <RadioButton
-        android:id="@+id/signup_female_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/signup_male_input"
-        android:layout_alignBottom="@+id/signup_male_input"
-        android:layout_alignRight="@+id/signup_username_input"
-        android:text="@string/signup_female" />
-
     <EditText
         android:id="@+id/signup_username_input"
         android:layout_width="wrap_content"
@@ -77,7 +68,6 @@
         android:ems="10"
         android:inputType="textPassword" />
 
-
     <TextView
         android:id="@+id/signup_email"
         android:layout_width="wrap_content"
@@ -85,15 +75,6 @@
         android:layout_alignLeft="@+id/signup_retype_password"
         android:layout_below="@+id/signup_retype_password_input"
         android:text="@string/signup_email" />
-
-    <EditText
-        android:id="@+id/signup_email_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/signup_female_input"
-        android:layout_below="@+id/signup_email"
-        android:ems="10"
-        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/signup_gender"
@@ -103,30 +84,13 @@
         android:layout_below="@+id/signup_email_input"
         android:text="@string/signup_gender" />
 
-    <RadioButton
-        android:id="@+id/signup_male_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/signup_email_input"
-        android:layout_below="@+id/signup_gender"
-        android:text="@string/signup_male" />
-
-    <Button
-        android:id="@+id/signup_signup_button"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/signup_female_input"
-        android:layout_marginTop="55dp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/login_signup_button" />
-
     <Button
         android:id="@+id/signup_signin_button"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_below="@+id/signup_signin"
-        android:layout_marginTop="22dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
         android:text="@string/login_signin_button" />
 
     <TextView
@@ -137,5 +101,45 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
         android:text="@string/signup_signin_text" />
+
+    <EditText
+        android:id="@+id/signup_email_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_retype_password_input"
+        android:layout_below="@+id/signup_email"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+   <RadioGroup
+        android:id="@+id/signup_gender_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/signup_gender"
+        android:layout_below="@+id/signup_gender" >
+
+        <RadioButton
+            android:id="@+id/signup_male_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/signup_male" />
+
+        <RadioButton
+            android:id="@+id/signup_female_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_female" />
+
+    </RadioGroup>
+
+   <Button
+       android:id="@+id/signup_signup_button"
+       android:layout_width="100dp"
+       android:layout_height="40dp"
+       android:layout_alignLeft="@+id/signup_signin_button"
+       android:layout_below="@+id/signup_gender_input"
+       android:layout_marginTop="26dp"
+       android:text="@string/login_signup_button" />
 
 </RelativeLayout>

@@ -52,6 +52,11 @@ public class SplashScreen extends Activity{
         	Toast toast = Toast.makeText(this, "Connected to Internet.", Toast.LENGTH_SHORT);
         	toast.show();
         }
+        
+        NetworkServices networkServices = NetworkServices.getNetworkServices();
+    	if (!networkServices.isConnected()) {
+    		networkServices.connect();
+    	}
     }
 
 }

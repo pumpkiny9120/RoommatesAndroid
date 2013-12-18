@@ -231,7 +231,7 @@ containing a value of this type.
     }
     public static final class id {
         public static final int TextView02=0x7f050031;
-        public static final int action_settings=0x7f05004b;
+        public static final int action_settings=0x7f05004c;
         public static final int contact_connect1=0x7f050011;
         public static final int contact_connect2=0x7f050012;
         public static final int contact_connect3=0x7f050013;
@@ -263,11 +263,11 @@ containing a value of this type.
         public static final int describe_word1=0x7f050017;
         public static final int describe_word2=0x7f050016;
         public static final int describe_word3=0x7f050018;
-        public static final int friend_heart=0x7f050047;
-        public static final int friend_name=0x7f050043;
-        public static final int friend_pic=0x7f050044;
-        public static final int friend_point=0x7f050046;
-        public static final int friend_status=0x7f050045;
+        public static final int friend_heart=0x7f050048;
+        public static final int friend_name=0x7f050044;
+        public static final int friend_pic=0x7f050045;
+        public static final int friend_point=0x7f050047;
+        public static final int friend_status=0x7f050046;
         public static final int friendlist=0x7f050034;
         public static final int gamingroom_text=0x7f050029;
         public static final int hybrid=0x7f050004;
@@ -286,25 +286,26 @@ containing a value of this type.
         public static final int map=0x7f050024;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int profile_name=0x7f050049;
-        public static final int profile_pic=0x7f050048;
-        public static final int profile_status=0x7f05004a;
+        public static final int profile_name=0x7f05004a;
+        public static final int profile_pic=0x7f050049;
+        public static final int profile_status=0x7f05004b;
         public static final int profile_text=0x7f05002b;
         public static final int satellite=0x7f050002;
-        public static final int signup_email=0x7f05003d;
-        public static final int signup_email_input=0x7f05003e;
-        public static final int signup_female_input=0x7f050036;
-        public static final int signup_gender=0x7f05003f;
-        public static final int signup_male_input=0x7f050037;
-        public static final int signup_password=0x7f050039;
-        public static final int signup_password_input=0x7f05003a;
-        public static final int signup_retype_password=0x7f05003b;
-        public static final int signup_retype_password_input=0x7f05003c;
-        public static final int signup_signin=0x7f050042;
-        public static final int signup_signin_button=0x7f050041;
+        public static final int signup_email=0x7f05003b;
+        public static final int signup_email_input=0x7f05003d;
+        public static final int signup_female_input=0x7f050043;
+        public static final int signup_gender=0x7f05003c;
+        public static final int signup_gender_input=0x7f050041;
+        public static final int signup_male_input=0x7f050042;
+        public static final int signup_password=0x7f050037;
+        public static final int signup_password_input=0x7f050038;
+        public static final int signup_retype_password=0x7f050039;
+        public static final int signup_retype_password_input=0x7f05003a;
+        public static final int signup_signin=0x7f05003f;
+        public static final int signup_signin_button=0x7f05003e;
         public static final int signup_signup_button=0x7f050040;
         public static final int signup_username=0x7f050035;
-        public static final int signup_username_input=0x7f050038;
+        public static final int signup_username_input=0x7f050036;
         public static final int terrain=0x7f050003;
     }
     public static final class integer {

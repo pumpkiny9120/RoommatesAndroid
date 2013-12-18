@@ -5,34 +5,34 @@
  */
 package com.oose2013.group7.roommates;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import com.oose2013.group7.roommates.services.webService;
-import android.os.AsyncTask;
+import android.widget.Toast;
+
+import com.oose2013.group7.roommates.common.commands.SignInCommand;
+import com.oose2013.group7.roommates.common.enums.MessageUtils;
+import com.oose2013.group7.roommates.common.interfaces.EventListener;
+import com.oose2013.group7.roommates.common.interfaces.UserEvent;
+import com.oose2013.group7.roommates.services.NetworkServices;
+import com.oose2013.group7.roommates.services.NetworkServices.Connect;
 
 
-public class Login extends Activity {
-	private webService mTcpClient;
+public class Login extends Activity implements EventListener<UserEvent>{
+	//private webService mTcpClient;
 	
 	private Button signinButton;
 	private Button signupButton;
-	private EditText username;
-	private EditText password;
+	private EditText usernameView;
+	private EditText passwordView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +40,18 @@ public class Login extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		setContentView(R.layout.activity_login);
 		
-		new connectTask().execute("");
+		//new connectTask().execute("");
 
 		getWindow().setSoftInputMode(
 			      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
-		username = (EditText) findViewById(R.id.login_username_input);
-		password = (EditText) findViewById(R.id.login_password_input);
+		usernameView = (EditText) findViewById(R.id.login_username_input);
+		passwordView = (EditText) findViewById(R.id.login_password_input);
+		
+		// get saved username
+		SharedPreferences pref = getApplicationContext().getSharedPreferences("Roommates", 0);
+		String username = pref.getString("username", null);
+		usernameView.setText(username);
 		
 		signupButton = (Button) findViewById(R.id.login_signup_button); 
 		signupButton.setOnClickListener(new Button.OnClickListener() {  
@@ -71,49 +76,42 @@ public class Login extends Activity {
 	}
 
     private void onSigninButtonClicked() {
-    	Log.i("Signin", username.getText().toString());
-    	Log.i("Signin", password.getText().toString());
-    	//mTcpClient.sendMessage(username.getText().toString());
-    	
-    	Intent i = new Intent(Login.this, Lobby.class);
-        startActivity(i);
+    	String username = usernameView.getText().toString();
+    	String password = passwordView.getText().toString();
 
-        // close this activity
-        finish();
+    	if(username.length() == 0 || password.length() == 0) {
+			Toast.makeText(this, "Please fill up all fields.", Toast.LENGTH_LONG).show();
+			return;
+		}
+    	
+    	// save username locally
+    	SharedPreferences pref = getApplicationContext().getSharedPreferences("Roommates", 0);
+    	Editor editor = pref.edit();
+    	editor.putString("username", username);
+    	editor.commit();
+    	
+    	NetworkServices networkServices = NetworkServices.getNetworkServices();
+    	if (!networkServices.isConnected()) {
+    		networkServices.connect();
+    	}
+    	else {
+    		SignInCommand cmd = new SignInCommand(username, password);
+    		networkServices.sendMessage(cmd);
+    	}
     }
 
-	public class connectTask extends AsyncTask<String,String, webService> {
-		@Override
-		protected webService doInBackground(String... message) {
-//			mTcpClient = new webService(new webService.OnMessageReceived() {
-//				@Override
-//				//here the messageReceived method is implemented
-//				public void messageReceived(String message) {
-//					//this method calls the onProgressUpdate
-//					publishProgress(message);
-//					}
-//				});
-//			mTcpClient.run();
+	@Override
+	public void eventReceived(UserEvent event) throws IOException {
+		if ((event.getMessage()).equals(MessageUtils.SIGNIN_SUCCESS)) {
+	    	Intent i = new Intent(Login.this, Lobby.class);
+	        startActivity(i);
 
-	        Socket clientSocket = null;
-	        try {
-				clientSocket = new Socket(InetAddress.getByName("205.215.251.11"), 3333);
-				clientSocket.close();
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			return null;
+	        // close this activity
+	        finish();
 		}
-		
-		@Override
-		protected void onProgressUpdate(String... values) {
-			super.onProgressUpdate(values);
-			// TODO: Add your codes here to deal with the update
+		else if ((event.getMessage()).equals(MessageUtils.SIGNIN_FAIL)) {
+			Toast toast = Toast.makeText(this, "Failed to login.", Toast.LENGTH_SHORT);
+        	toast.show();
 		}
 	}
 
