@@ -7,10 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
+/**
+ * Profile page with a friend list.
+ */
 public class Profile extends Activity {
 
+    /** The friendlist. */
     private ListView friendlist;
 
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

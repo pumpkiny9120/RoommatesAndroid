@@ -26,14 +26,29 @@ import com.oose2013.group7.roommates.services.NetworkServices;
 import com.oose2013.group7.roommates.services.NetworkServices.Connect;
 
 
+/**
+ * Checkes the fields and send the information to the server,
+ * once the server sends back the success message, lead the user
+ * to the Lobby view.
+ */
 public class Login extends Activity implements EventListener<UserEvent>{
 	//private webService mTcpClient;
 	
+	/** The signin button. */
 	private Button signinButton;
+	
+	/** The signup button. */
 	private Button signupButton;
+	
+	/** The username view. */
 	private EditText usernameView;
+	
+	/** The password view. */
 	private EditText passwordView;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,6 +90,9 @@ public class Login extends Activity implements EventListener<UserEvent>{
 
 	}
 
+    /**
+     * On signin button clicked. Checks the fields and send the information.
+     */
     private void onSigninButtonClicked() {
     	String username = usernameView.getText().toString();
     	String password = passwordView.getText().toString();
@@ -100,6 +118,10 @@ public class Login extends Activity implements EventListener<UserEvent>{
     	}
     }
 
+	/**
+	 * Login the user and show the lobby view.
+	 * @see com.oose2013.group7.roommates.common.interfaces.EventListener#eventReceived(com.oose2013.group7.roommates.common.interfaces.Event)
+	 */
 	@Override
 	public void eventReceived(UserEvent event) throws IOException {
 		if ((event.getMessage()).equals(MessageUtils.SIGNIN_SUCCESS)) {

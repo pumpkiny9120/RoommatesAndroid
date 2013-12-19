@@ -18,12 +18,23 @@ import android.util.Log;
 import android.widget.Toast;
 
 
+/**
+ * Checks the internet availability and connect to the server.
+ */
 public class SplashScreen extends Activity{
+	
+	/** The Constant APP_TAG. */
 	private static final String APP_TAG = "Roommates";
+	
+	/** The Constant ACT_TAG. */
 	private static final String ACT_TAG = "SplashScreen: ";
     // splash screen timer, 5 seconds
+    /** The splash time out. */
     private static int SPLASH_TIME_OUT = 5000;
  
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +65,16 @@ public class SplashScreen extends Activity{
         }
         
         NetworkServices networkServices = NetworkServices.getNetworkServices();
-    	if (!networkServices.isConnected()) {
-    		networkServices.connect();
-    	}
+        networkServices.connect();
+//    	if (!networkServices.isConnected()) {
+//    		networkServices.connect();
+//    		Toast toast = Toast.makeText(this, "Service not available.", Toast.LENGTH_SHORT);
+//        	toast.show();
+//    	}
+//    	else {
+//    		Toast toast = Toast.makeText(this, "Service available.", Toast.LENGTH_SHORT);
+//        	toast.show();
+//    	}
     }
 
 }

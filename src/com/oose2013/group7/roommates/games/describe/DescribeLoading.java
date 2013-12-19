@@ -17,12 +17,21 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * Loading screen for the game describe.
+ */
 public class DescribeLoading extends Activity implements OnClickListener{
 
 	//TODO connect the server and join the game
+	/** The join button. */
 	private Button joinButton;
+    
+    /** The model. */
     private DescribeModel model;
  
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +47,9 @@ public class DescribeLoading extends Activity implements OnClickListener{
 		
     }
     
+    /* (non-Javadoc)
+     * @see android.view.View.OnClickListener#onClick(android.view.View)
+     */
     @Override
 	public void onClick(View v) {
     	Log.i("Describe", "joining game");
@@ -48,8 +60,14 @@ public class DescribeLoading extends Activity implements OnClickListener{
 //      finish();
     }
     
+    /**
+     * Get the game model from the server.
+     */
     private class getModelTask extends AsyncTask<Void, Void, DescribeModel> {
         
+        /* (non-Javadoc)
+         * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+         */
         @Override
 		protected void onPostExecute(DescribeModel result) {
         	model = result;
@@ -57,6 +75,9 @@ public class DescribeLoading extends Activity implements OnClickListener{
         	Log.i("Describe", "getModel finished");
         }
 
+		/* (non-Javadoc)
+		 * @see android.os.AsyncTask#doInBackground(Params[])
+		 */
 		@Override
 		protected DescribeModel doInBackground(Void... params) {
 			return new DescribeModel();

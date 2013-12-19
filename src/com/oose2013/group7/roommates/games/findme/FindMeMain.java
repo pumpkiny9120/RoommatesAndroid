@@ -25,24 +25,52 @@ import android.util.Log;
 import android.widget.Toast;
 
 
+/**
+ * Main activity for game Find Me.
+ * Location services and Google Maps api used.
+ */
 public class FindMeMain extends Activity implements 
 	OnMapClickListener,
 	GooglePlayServicesClient.ConnectionCallbacks,
     GooglePlayServicesClient.OnConnectionFailedListener {
 	
+		/** The map. */
 		private GoogleMap map;
+		
+		/** The my loc. */
 		private LatLng myLoc;
 
+		/** The dest. */
 		private LatLng dest;
+		
+		/** The last guess. */
 		private LatLng lastGuess;
+		
+		/** The m location client. */
 		private LocationClient mLocationClient;
+		
+		/** The Constant CONNECTION_FAILURE_RESOLUTION_REQUEST. */
 		public final static int CONNECTION_FAILURE_RESOLUTION_REQUEST = 9000;
 		
-	    public enum Direction {
-	    	LEFT, RIGHT, UP, DOWN;
+	    /**
+    	 * The Enum Direction.
+    	 */
+    	public enum Direction {
+	    	
+	    	/** The left. */
+	    	LEFT, 
+			 /** The right. */
+			 RIGHT, 
+			 /** The up. */
+			 UP, 
+			 /** The down. */
+			 DOWN;
 	    }
 	    
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see android.app.Activity#onCreate(android.os.Bundle)
+    	 */
+    	@Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.activity_findme);
@@ -54,7 +82,10 @@ public class FindMeMain extends Activity implements
 	        // and then initialize
 	    }
 
-	    private void initialize() {
+	    /**
+    	 * Initialize the current location.
+    	 */
+    	private void initialize() {
 	        if (servicesConnected()) {
 	        	Location currentLocation = mLocationClient.getLastLocation();
 	            myLoc = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
@@ -78,12 +109,17 @@ public class FindMeMain extends Activity implements
 	        map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLoc, 5));
 
 	        map.addMarker(new MarkerOptions()
-	                .title("Sydney")
-	                .snippet("The most populous city in Australia.")
+	                .title("My Location")
+	                .snippet("I'm here.")
 	                .position(myLoc));
 	        
 	        map.setOnMapClickListener(this);
 	    }
+		
+		/**
+		 * Make a guess and add a route to the map.
+		 * @see com.google.android.gms.maps.GoogleMap.OnMapClickListener#onMapClick(com.google.android.gms.maps.model.LatLng)
+		 */
 		@Override
 		public void onMapClick(LatLng point) {
 	        Marker marker = map.addMarker(new MarkerOptions()
@@ -102,6 +138,11 @@ public class FindMeMain extends Activity implements
 	        checkDestination(point);
 		}
 
+		/**
+		 * Check if it's close to the destination.
+		 *
+		 * @param point the point
+		 */
 		private void checkDestination(LatLng point) {
 			double latA = point.latitude;
 			double longA = point.longitude;
@@ -143,6 +184,13 @@ public class FindMeMain extends Activity implements
 	        
 		}
 		
+		/**
+		 * Show directions. Give hints.
+		 *
+		 * @param directionLeftRight the direction left right
+		 * @param directionUpDown the direction up down
+		 * @param distance the distance
+		 */
 		private void showDirection(Direction directionLeftRight, Direction directionUpDown, Float distance) {
 			String leftRight = null;
 			if (directionLeftRight == Direction.LEFT) {
@@ -187,6 +235,9 @@ public class FindMeMain extends Activity implements
 			alertDialog.show();
 		}
 		
+		/* (non-Javadoc)
+		 * @see com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailedListener#onConnectionFailed(com.google.android.gms.common.ConnectionResult)
+		 */
 		@Override
 		public void onConnectionFailed(ConnectionResult connectionResult) {
 			if (connectionResult.hasResolution()) {
@@ -212,12 +263,18 @@ public class FindMeMain extends Activity implements
 	        }
 		}
 
+		/* (non-Javadoc)
+		 * @see com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks#onConnected(android.os.Bundle)
+		 */
 		@Override
 		public void onConnected(Bundle connectionHint) {
 			Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show();
 			initialize();
 		}
 
+		/* (non-Javadoc)
+		 * @see com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks#onDisconnected()
+		 */
 		@Override
 		public void onDisconnected() {
 			Toast.makeText(this, "Disconnected. Please re-connect.",
@@ -228,7 +285,10 @@ public class FindMeMain extends Activity implements
 	     * Handle results returned to the FragmentActivity
 	     * by Google Play services
 	     */
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see android.app.Activity#onActivityResult(int, int, android.content.Intent)
+    	 */
+    	@Override
 	    protected void onActivityResult(
 	            int requestCode, int resultCode, Intent data) {
 	        // Decide what to do based on the original request code
@@ -249,7 +309,12 @@ public class FindMeMain extends Activity implements
 	        }
 	     }
 
-	    private boolean servicesConnected() {
+	    /**
+    	 * Services connected.
+    	 *
+    	 * @return true, if successful
+    	 */
+    	private boolean servicesConnected() {
 	        // Check that Google Play services is available
 	        int resultCode =
 	                GooglePlayServicesUtil.
@@ -272,7 +337,10 @@ public class FindMeMain extends Activity implements
 	    /*
 	     * Called when the Activity becomes visible.
 	     */
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see android.app.Activity#onStart()
+    	 */
+    	@Override
 	    protected void onStart() {
 	        super.onStart();
 	        // Connect the client.
@@ -282,7 +350,10 @@ public class FindMeMain extends Activity implements
 	    /*
 	     * Called when the Activity is no longer visible.
 	     */
-	    @Override
+	    /* (non-Javadoc)
+    	 * @see android.app.Activity#onStop()
+    	 */
+    	@Override
 	    protected void onStop() {
 	        // Disconnecting the client invalidates it.
 	        mLocationClient.disconnect();

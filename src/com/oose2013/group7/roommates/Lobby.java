@@ -14,11 +14,24 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
+/**
+ * Giving the choices of going to Waiting Room, Gaming Room,
+ * Dating Room or profile page.
+ */
 public class Lobby extends Activity implements OnClickListener{
+	
+	/** The gaming room button. */
 	private ImageView gamingRoomButton;
+	
+	/** The dating room button. */
 	private ImageView datingRoomButton;
+	
+	/** The profile button. */
 	private ImageView profileButton;
  
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +46,9 @@ public class Lobby extends Activity implements OnClickListener{
         profileButton.setOnClickListener(this);
     }
     
+    /* (non-Javadoc)
+     * @see android.view.View.OnClickListener#onClick(android.view.View)
+     */
     @Override
 	public void onClick(View v) {
     	if (v.equals(gamingRoomButton)) {
@@ -46,7 +62,7 @@ public class Lobby extends Activity implements OnClickListener{
             startActivity(i);
     	}
     	else if (v.equals(profileButton)) {
-    		Log.d("Profile", "Joining game");
+    		Log.d("Profile", "Joining");
         	Intent i = new Intent(Lobby.this, Profile.class);
             startActivity(i);
     	}

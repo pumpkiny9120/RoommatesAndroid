@@ -11,12 +11,27 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * The Class ProfileListAdapter.
+ */
 public class ProfileListAdapter extends ArrayAdapter<FriendListItemHolder>{
 
+    /** The context. */
     Context context; 
+    
+    /** The layout resource id. */
     int layoutResourceId;    
+    
+    /** The data. */
     FriendListItemHolder data[] = null;
     
+    /**
+     * Instantiates a new profile list adapter.
+     *
+     * @param context the context
+     * @param layoutResourceId the layout resource id
+     * @param data the data
+     */
     public ProfileListAdapter(Context context, int layoutResourceId, FriendListItemHolder[] data) {
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
@@ -24,6 +39,9 @@ public class ProfileListAdapter extends ArrayAdapter<FriendListItemHolder>{
         this.data = data;
     }
 
+    /* (non-Javadoc)
+     * @see android.widget.ArrayAdapter#getView(int, android.view.View, android.view.ViewGroup)
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
@@ -52,11 +70,22 @@ public class ProfileListAdapter extends ArrayAdapter<FriendListItemHolder>{
         return row;
     }
     
+    /**
+     * The Class FriendHolder.
+     */
     public static class FriendHolder
     {
-    	public TextView name;
-    	public TextView status;
-    	public TextView likingPoints;
-    	public ImageView profilePic;
+    	
+	    /** The name. */
+	    public TextView name;
+    	
+	    /** The status. */
+	    public TextView status;
+    	
+	    /** The liking points. */
+	    public TextView likingPoints;
+    	
+	    /** The profile pic. */
+	    public ImageView profilePic;
     }
 }

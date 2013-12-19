@@ -26,14 +26,30 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+/**
+ * Check the fields and send the information to the server to register
+ * an user.
+ */
 public class SignUp extends Activity implements EventListener<UserEvent>{
 	
+	/** The username view. */
 	private EditText usernameView;
+	
+	/** The password view. */
 	private EditText passwordView;
+	
+	/** The retype password view. */
 	private EditText retypePasswordView;
+	
+	/** The email view. */
 	private EditText emailView;
+	
+	/** The gender view. */
 	private RadioGroup genderView;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,6 +81,9 @@ public class SignUp extends Activity implements EventListener<UserEvent>{
 
 	}
 	
+	/**
+	 * Do fields checking. Send message to the server.
+	 */
 	private void signUp() {
 		usernameView = (EditText) findViewById(R.id.signup_username_input);
 		passwordView = (EditText) findViewById(R.id.signup_password_input);
@@ -105,6 +124,10 @@ public class SignUp extends Activity implements EventListener<UserEvent>{
     	}
 	}
 
+	/**
+	 * User registered. Go to the signin page.
+	 * @see com.oose2013.group7.roommates.common.interfaces.EventListener#eventReceived(com.oose2013.group7.roommates.common.interfaces.Event)
+	 */
 	@Override
 	public void eventReceived(UserEvent event) throws IOException {
 		if ((event.getMessage()).equals(MessageUtils.SIGNIN_SUCCESS)) {

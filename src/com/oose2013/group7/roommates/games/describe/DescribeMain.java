@@ -18,25 +18,59 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+/**
+ * Main activity for game Describe.
+ */
 public class DescribeMain extends Activity implements GameListener, DescribeGameProxy{
 	
+	/** The user. */
 	private String user;
+	
+	/** The model. */
 	private DescribeModel model;
+	
+	/** The round. */
 	private TextView round;
 	//private TextView state;
+	/** The display. */
 	private TextView display;
+	
+	/** The word0. */
 	private TextView word0;
+	
+	/** The word1. */
 	private TextView word1;
+	
+	/** The word2. */
 	private TextView word2;
+	
+	/** The word3. */
 	private TextView word3;
+	
+	/** The username0. */
 	private TextView username0;
+	
+	/** The username1. */
 	private TextView username1;
+	
+	/** The username2. */
 	private TextView username2;
+	
+	/** The username3. */
 	private TextView username3;
+	
+	/** The input. */
 	private TextView input;
+	
+	/** The countdown. */
 	private TextView countdown;
+	
+	/** The submit. */
 	private Button submit;
 	
+    /* (non-Javadoc)
+     * @see android.app.Activity#onCreate(android.os.Bundle)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,12 +107,18 @@ public class DescribeMain extends Activity implements GameListener, DescribeGame
         updateView();
     }
     
+	/* (non-Javadoc)
+	 * @see com.oose2013.group7.roommates.common.interfaces.DescribeGameProxy#setDescription(java.lang.String, java.lang.String)
+	 */
 	@Override
 	public void setDescription(String text, String userName) {
 		
 		// TODO send a command object to the server to update an description
 	}
     
+    /**
+     * Inits the view.
+     */
     public void initView() {
         // TODO initialize player names, etc
     	username0.setText(model.getUsernames().get(0));
@@ -87,6 +127,9 @@ public class DescribeMain extends Activity implements GameListener, DescribeGame
     	username3.setText(model.getUsernames().get(3));
     }
     
+    /**
+     * Update view.
+     */
     public void updateView() {
         
         round.setText("Round " + (model.getRound()).toString());
@@ -130,6 +173,9 @@ public class DescribeMain extends Activity implements GameListener, DescribeGame
         }
     }
 
+	/* (non-Javadoc)
+	 * @see com.oose2013.group7.roommates.GameListener#modelChanged(com.oose2013.group7.roommates.GameEvent)
+	 */
 	@Override
 	public void modelChanged(GameEvent event) {
 		updateView();
